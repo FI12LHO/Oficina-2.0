@@ -1,0 +1,96 @@
+body {
+    width: 100vw;
+    height: 100vh;
+
+    box-sizing: border-box;
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+.menu {
+    width: 100vw;
+
+    padding: 5px 0px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu a button {
+    width: 100px;
+
+    margin: 0px 10px;
+}
+
+.estimate-container {
+    width: 100vw;
+
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.estimate-container table thead a {
+    text-decoration: none;
+    color: #000;
+    transition-delay: 0.2s all;
+}
+
+.estimate-container table thead a:hover {
+    opacity: 0.5;
+}
+
+.estimate-container table thead span {
+    margin: 0px 15px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.estimate-container table tbody tr td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.estimate-container table tbody a {
+    text-decoration: none;
+}
+
+.estimate-container table tbody a button {
+    width: 60px;
+    margin-left: 15px;
+}
+
+.estimate-container table tbody span {
+    margin: 0px 15px;
+}
+
+.estimate-container table tbody p {
+    margin: 0px 15px;
+    word-wrap: break-word;
+}
+
+nav {
+    margin-top: 50px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li {
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
