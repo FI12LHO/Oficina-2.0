@@ -34,6 +34,14 @@ class estimateController extends Controller
      */
     public function store(Request $request)
     {
+        $validate_data = $request -> validate([
+            'client_name' => ['required', 'max:255'],
+            'seller' => ['required', 'max:255'],
+            'date' => ['required', 'max:255'],
+            'description' => ['required'],
+            'value' => ['required'],
+        ]);
+
         $post = $request -> post();
         $new_estimate = [
             'client_name' => $post['client_name'],
@@ -70,6 +78,14 @@ class estimateController extends Controller
      */
     public function edit(Request $request, $id)
     {
+        $validate_data = $request -> validate([
+            'client_name' => ['required', 'max:255'],
+            'seller' => ['required', 'max:255'],
+            'date' => ['required', 'max:255'],
+            'description' => ['required'],
+            'value' => ['required'],
+        ]);
+        
         $post = $request -> post();
         $new_estimate = [
             'client_name' => $post['client_name'],

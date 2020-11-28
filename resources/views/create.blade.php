@@ -9,6 +9,13 @@
 </head>
 <body>
     <div class="estimate-container">
+        @if($errors -> any())
+            <div>
+                @foreach ($errors -> all() as $error)
+                    <li><strong>{{$error}}</strong></li>
+                @endforeach
+            </div>
+        @endif
         <form action="{{url('create')}}" method="post" id="form-create">
             @method('POST')
             @csrf
