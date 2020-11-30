@@ -27,8 +27,8 @@
                 name="seller" id="input_seller"
                 placeholder="Qual o nome do vendedor?" required>
     
-            <input type="number" min="0"
-                name="value" id="input_value"
+            <input type="text" name="value" 
+                id="input_value" onchange="changeFieldValue(this)"
                 placeholder="Valor do orçamento" required>
     
             <input type="datetime-local"
@@ -44,5 +44,7 @@
                 id="btn-create-estimate">Cadastrar</button>
         </div>
     </div>
+
+    <script src="{{asset('js/validation.js')}}"></script>
 </body>
 </html>
