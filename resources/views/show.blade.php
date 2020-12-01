@@ -16,7 +16,7 @@
                 @endforeach
             </div>
         @endif
-        <form action="{{url('edit/' . $estimate -> id)}}" method="post" id="update-form">
+        <form action="{{url('edit/' . $estimate -> id)}}" method="post" id="form">
             @method('put')
             @csrf
             <div class="block">
@@ -33,8 +33,8 @@
             </div>
             <div class="block">
                 <label for="input_value">Valor</label>
-                <input type="number" min="0"
-                    name="value" id="input_value"
+                <input type="text" name="value" 
+                    id="input_value" onchange="changeFieldValue(this)"
                     placeholder="Valor do orçamento" value="{{$estimate -> value}}" required>
             </div>
             <div class="block">
@@ -52,8 +52,10 @@
         </form>
         <div class="controls">
             <a href="{{url('/')}}"><button>Cancelar</button></a>
-            <button type="submit" form="update-form">Atualizar orçamento</button>
+            <button type="submit" form="form">Atualizar orçamento</button>
         </div>
     </div>
+
+    <script src="{{asset('js/validation.js')}}"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@
                 @endforeach
             </div>
         @endif
-        <form action="{{url('create')}}" method="post" id="form-create">
+        <form action="{{url('create')}}" method="post" id="form">
             @method('POST')
             @csrf
             <input type="text" 
