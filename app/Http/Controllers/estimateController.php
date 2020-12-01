@@ -6,12 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
 use App\Model\Estimate;
 
+/**
+ * @author Marlom Marques
+ * @version 1.0
+ * @since 01/12/2020
+ */
 class estimateController extends Controller
 {
     /**
-     * @var filter = recupera da url pelo metodo GET o nome da coluna que ira ordenar a query ao DB
-     * @var estimate_list = armazena o resultado da consulta ordenada por coluna na ordem decrescente
-     * @return = retorna a view index (listagem) e o resultado da query com a paginação
+     * Metodo responsavel por tratar e listar todos os registros cadastrados no banco de dados.
+     * Recupera da url pelo metodo GET o nome da coluna que ira ordenar a query ao DB e armazena o resultado da consulta ordenada por coluna na ordem decrescente.
+     * @return view - Retorna a view index (listagem) e o resultado da query com a paginação
      */
     public function index()
     {
@@ -20,17 +25,20 @@ class estimateController extends Controller
 
         return view('index', compact('estimate_list'));
     }
-
+    /**
+     * Metodo responsavel por apresentar uma view com o formulario para criação de registros
+     * @return view
+     */
     public function create()
     {
         return view('create');
     }
 
     /**
-     * @param request = obtem todas as requisiçoes atraves da classe Request(tipagem estatica)
-     * @var post = Recebe os dados da url pelo metodo POST
-     * @var new_estimate = Um array com chaves nomeadas(colunas do BD) e os valores recuperados respectivamente
-     * @return = após criar um novo registro no BD, redireciona o usuario a pagina index(listagem)
+     * Metodo responsavel por criar um novo registro no banco de dados.
+     * Recebe dados do formulario enviados pelo metodo POST e criar uma matriz chaveada com os respectivos dados.
+     * @param request - Obtem todas as requisiçoes atraves da classe Request(tipagem estatica).
+     * @return redirect - Após criar um novo registro no BD, redireciona o usuario a pagina index(listagem).
      */
     public function store(Request $request)
     {
@@ -57,9 +65,10 @@ class estimateController extends Controller
     }
 
     /**
-     * @param id = chave primaria do registro dentro do BD
-     * @var estimate = armazena os dados encontrados pelo metodo find() da classe Estimate de acordo com o ID
-     * @return = Retorna a view show e os dados da variavel estimate
+     * Metodo responsavel por retornar um unico resgitro do banco de dados, que tenha a chave primaria de acordo com a busca.
+     * Realiza a busca pelo metodo find() da classe (Model) Estimate recebendo como parametro o id do registro.
+     * @param id - Valor da chave primaria do registro dentro do banco de dados.
+     * @return view - Retorna a view show e os dados da variavel estimate
      */
     public function show($id)
     {
@@ -69,12 +78,12 @@ class estimateController extends Controller
     }
 
     /**
-     * @param request = obtem todas as requisiçoes atraves da classe Request(tipagem estatica)
-     * @param id = chave primaria do registro dentro do BD
-     * @var post = Recebe os dados da url pelo metodo POST
-     * @var new_estimate = Um array com chaves nomeadas(colunas do BD) e os valores recuperados respectivamente
-     * @var estimate = obtem os dados encontrados pelo metodo find e atualiza os mesmos
-     * @return = após atualizar um registro no BD, redireciona o usuario a pagina index(listagem)
+     * Metodo responsavel por atualizar um registro dentro do banco de dados.
+     * Acessando os dados do registro por meio do metodo find() da classe (Model) Estimate recebendo como parametro o id do registro.
+     * Recebe dados do formulario enviados pelo metodo POST e criar uma matriz chaveada com os respectivos dados.
+     * @param request - Obtem todas as requisiçoes atraves da classe Request(tipagem estatica).
+     * @param id - Chave primaria do registro dentro do banco de dados.
+     * @return redirect - Após atualizar um registro no banco de dados, redireciona o usuario a pagina index(listagem).
      */
     public function edit(Request $request, $id)
     {
@@ -100,15 +109,20 @@ class estimateController extends Controller
         return redirect('/');
     }
 
+    /**
+     * Metodo responsavel por apresentar uma view, para confirmação da solicitação de remoção de um registro.
+     * @return view
+     */
     public function delete($id)
     {
         return view('delete', compact('id'));
     }
 
     /**
-     * @param id = chave primaria do registro dentro do BD
-     * @var estimate = obtem os dados encontrados pelo metodo find() e deleta os mesmos
-     * @return = após deletar o registro do BD, redireciona o usuario a pagina index(listagem)
+     * Metodo responsavel por deletar um registro do banco de dados, de acordo com sua chave primaria (id).
+     * Obtem os dados encontrados pelo metodo find() e deleta os mesmos.
+     * @param id - Chave primaria do registro dentro do BD.
+     * @return redirect - Após deletar o registro do BD, redireciona o usuario a pagina index(listagem).
      */
     public function destroy($id)
     {
